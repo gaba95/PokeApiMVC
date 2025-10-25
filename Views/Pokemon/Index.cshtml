@@ -1,0 +1,35 @@
+﻿@model PokeApiMvc.Models.Pokemon
+
+@{
+    ViewData["Title"] = "Consulta de Pokémon";
+}
+
+<h1>🔍 PokéAPI - Consulta de Pokémon</h1>
+
+<form method="post" style="margin-bottom: 20px;">
+    <input type="text" name="pokemonName" placeholder="Ejemplo: pikachu" />
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red;">@ViewBag.Error</p>
+}
+
+@if (Model != null)
+{
+    <div style="margin-top:20px;">
+        <h2>@Model.Name</h2>
+        <img src="@Model.ImageUrl" alt="@Model.Name" width="200" />
+        <p><b>Altura:</b> @Model.Height m</p>
+        <p><b>Peso:</b> @Model.Weight kg</p>
+
+        <h4>Tipos:</h4>
+        <ul>
+            @foreach (var type in Model.Types)
+            {
+                <li>@type</li>
+            }
+        </ul>
+    </div>
+}
