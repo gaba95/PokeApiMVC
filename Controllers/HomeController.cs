@@ -26,5 +26,12 @@ namespace PokeApiMVC.Controllers
 
             return View();
         }
+
+        public ActionResult Factura()
+        {
+            //ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }

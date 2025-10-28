@@ -76,16 +76,16 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-const ctx = document.getElementById('salesChart');
-new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
-    datasets: [{
-      label: 'Ventas (Q)',
-      data: [10000, 12000, 9000, 15000, 18000, 22000],
-      borderWidth: 2
-    }]
-  }
-});
+    const ctx = document.getElementById('salesChart');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Ventas (Q)',
+                data: [10000, 12000, 9000, 15000, 18000, 22000],
+                borderWidth: 2
+            }]
+        }
+    });
 </script>

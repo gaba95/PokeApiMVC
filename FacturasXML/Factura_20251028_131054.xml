@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/facturaElectronica https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/facturaElectronica.xsd" xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/facturaElectronica">
+  <Clave>5062810251310549999999999990100100001010000001</Clave>
+  <NumeroConsecutivo>00100001010000001</NumeroConsecutivo>
+  <FechaEmision>2025-10-28T13:10:54</FechaEmision>
+  <Emisor>
+    <Nombre>ENLASA</Nombre>
+    <Identificacion>
+      <Tipo>01</Tipo>
+      <Numero>3030303</Numero>
+    </Identificacion>
+    <NombreComercial>FILIAL 1</NombreComercial>
+    <Ubicacion>
+      <Provincia>1</Provincia>
+      <Canton>01</Canton>
+      <Distrito>01</Distrito>
+      <Barrio>01</Barrio>
+      <OtrasSenas>San José centro</OtrasSenas>
+    </Ubicacion>
+    <Telefono>
+      <CodigoPais>506</CodigoPais>
+      <NumTelefono>88888888</NumTelefono>
+    </Telefono>
+    <CorreoElectronico>ventas@ENLASA.com</CorreoElectronico>
+  </Emisor>
+  <Receptor>
+    <Nombre>test</Nombre>
+    <Identificacion>
+      <Tipo>01</Tipo>
+      <Numero>test</Numero>
+    </Identificacion>
+    <CorreoElectronico>test@test.com</CorreoElectronico>
+  </Receptor>
+  <DetalleServicio>
+    <LineaDetalle>
+      <NumeroLinea>1</NumeroLinea>
+      <Codigo>1</Codigo>
+      <Cantidad>1</Cantidad>
+      <UnidadMedida>Unid</UnidadMedida>
+      <Detalle>test</Detalle>
+      <PrecioUnitario>1</PrecioUnitario>
+      <MontoTotal>1</MontoTotal>
+      <SubTotal>1</SubTotal>
+      <Impuesto>
+        <Codigo>01</Codigo>
+        <Tarifa>7</Tarifa>
+        <Monto>0.07</Monto>
+      </Impuesto>
+      <MontoTotalLinea>1.07</MontoTotalLinea>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <TotalServGravados>1</TotalServGravados>
+    <TotalImpuesto>0.07</TotalImpuesto>
+    <TotalComprobante>1.07</TotalComprobante>
+  </ResumenFactura>
+</FacturaElectronica>

@@ -1,0 +1,114 @@
+﻿@model Proyecto.Models.FacturaViewModel
+@{
+    ViewBag.Title = "Facturación Electrónica";
+}
+
+<!-- Bootstrap + SweetAlert2 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<div class="container mt-5">
+    <div class="card shadow p-4 border-0 rounded-4">
+        <h2 class="text-center text-primary mb-4 fw-bold">
+            🧾 Facturación Electrónica - Costa Rica
+        </h2>
+
+        @using (Html.BeginForm("GenerarFactura", "Facturacion", FormMethod.Post, new { id = "facturaForm" }))
+        {
+            <!-- Datos del Cliente -->
+            <h5 class="text-secondary mb-3 fw-semibold">Datos del Cliente</h5>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Cliente.Nombre)
+                    @Html.TextBoxFor(m => m.Cliente.Nombre, new { @class = "form-control", placeholder = "Nombre del cliente" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Cliente.Identificacion)
+                    @Html.TextBoxFor(m => m.Cliente.Identificacion, new { @class = "form-control", placeholder = "Identificación" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Cliente.Correo)
+                    @Html.TextBoxFor(m => m.Cliente.Correo, new { @class = "form-control", placeholder = "Correo electrónico" })
+                </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <!-- Productos -->
+            <h5 class="text-secondary mb-3 fw-semibold">Productos</h5>
+
+            <div id="productosContainer">
+                <div class="producto row g-3 mb-3">
+                    <div class="col-md-2"><input class="form-control" name="Productos[0].Codigo" placeholder="Código" /></div>
+                    <div class="col-md-3"><input class="form-control" name="Productos[0].Nombre" placeholder="Descripción" /></div>
+                    <div class="col-md-2"><input type="number" step="0.01" class="form-control" name="Productos[0].Precio" placeholder="Precio" /></div>
+                    <div class="col-md-2"><input type="number" class="form-control" name="Productos[0].Cantidad" placeholder="Cantidad" /></div>
+                    <div class="col-md-2"><input type="number" step="0.01" class="form-control" name="Productos[0].PorcentajeImpuesto" placeholder="IVA %" /></div>
+                    <div class="col-md-1 text-center d-flex align-items-center justify-content-center">
+                        <button type="button" class="btn btn-danger btn-sm eliminar">✖</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-end mb-4">
+                <button type="button" id="agregarProducto" class="btn btn-outline-primary">➕ Agregar producto</button>
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-success btn-lg px-4">💾 Generar Factura</button>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    let index = 1;
+    $("#agregarProducto").click(function () {
+        let nuevo = `
+        <div class="producto row g-3 mb-3">
+            <div class="col-md-2"><input class="form-control" name="Productos[${index}].Codigo" placeholder="Código" /></div>
+            <div class="col-md-3"><input class="form-control" name="Productos[${index}].Nombre" placeholder="Descripción" /></div>
+            <div class="col-md-2"><input type="number" step="0.01" class="form-control" name="Productos[${index}].Precio" placeholder="Precio" /></div>
+            <div class="col-md-2"><input type="number" class="form-control" name="Productos[${index}].Cantidad" placeholder="Cantidad" /></div>
+            <div class="col-md-2"><input type="number" step="0.01" class="form-control" name="Productos[${index}].PorcentajeImpuesto" placeholder="IVA %" /></div>
+            <div class="col-md-1 text-center d-flex align-items-center justify-content-center">
+                <button type="button" class="btn btn-danger btn-sm eliminar">✖</button>
+            </div>
+        </div>`;
+        $("#productosContainer").append(nuevo);
+        index++;
+    });
+
+    $(document).on("click", ".eliminar", function () {
+        $(this).closest(".producto").remove();
+    });
+
+    $("#facturaForm").on("submit", function (e) {
+        e.preventDefault();
+
+        Swal.fire({
+            title: '¿Generar factura?',
+            text: "Se enviará a Hacienda según los datos ingresados.",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, generar',
+            cancelButtonText: 'Cancelar'
+        });
+
+        Swal.fire('Éxito', '@TempData["Exito"]', 'success');
+        });
+
+    @*@if (TempData["Exito"] != null)
+    {
+        <text>
+            Swal.fire('Éxito', '@TempData["Exito"]', 'success');
+        </text>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <text>
+            Swal.fire('Error', '@TempData["Error"]', 'error');
+        </text>
+    }*@
+</script>

@@ -76,3 +76,9 @@ C:\Users\Administrador.LAPTOP-7M8U7RTU\source\repos\PokeApiMVC\obj\Debug\PokeApi
 C:\Users\Administrador.LAPTOP-7M8U7RTU\source\repos\PokeApiMVC\obj\Debug\PokeApiMVC.csproj.CopyComplete
 C:\Users\Administrador.LAPTOP-7M8U7RTU\source\repos\PokeApiMVC\obj\Debug\PokeApiMVC.dll
 C:\Users\Administrador.LAPTOP-7M8U7RTU\source\repos\PokeApiMVC\obj\Debug\PokeApiMVC.pdb
+C:\Users\Administrador.LAPTOP-7M8U7RTU\source\repos\PokeApiMVC\bin\System.Net.Http.Formatting.dll
+C:\Users\Administrador.LAPTOP-7M8U7RTU\source\repos\PokeApiMVC\bin\System.Web.Http.dll
+C:\Users\Administrador.LAPTOP-7M8U7RTU\source\repos\PokeApiMVC\bin\System.Web.Http.WebHost.dll
+C:\Users\Administrador.LAPTOP-7M8U7RTU\source\repos\PokeApiMVC\bin\System.Net.Http.Formatting.xml
+C:\Users\Administrador.LAPTOP-7M8U7RTU\source\repos\PokeApiMVC\bin\System.Web.Http.xml
+C:\Users\Administrador.LAPTOP-7M8U7RTU\source\repos\PokeApiMVC\bin\System.Web.Http.WebHost.xml
