@@ -1,17 +1,42 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewData["Title"] = "Inventario";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="container-fluid mt-4">
+    <h4 class="fw-semibold mb-3">Control de Inventario</h4>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <table class="table table-bordered align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>SKU</th>
+                        <th>Producto</th>
+                        <th>Unidad de Medida</th>
+                        <th>Stock Disponible</th>
+                        <th>Reservado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PRD-001</td>
+                        <td>Concentrado Soluble</td>
+                        <td>Kilo</td>
+                        <td><span class="badge bg-success">240</span></td>
+                        <td>15</td>
+                        <td><button class="btn btn-sm btn-outline-secondary">Editar</button></td>
+                    </tr>
+                    <tr>
+                        <td>PRD-002</td>
+                        <td>Zinc Sulfato</td>
+                        <td>Gramo</td>
+                        <td><span class="badge bg-danger">8</span></td>
+                        <td>4</td>
+                        <td><button class="btn btn-sm btn-outline-secondary">Editar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

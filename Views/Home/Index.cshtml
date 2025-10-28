@@ -1,31 +1,91 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewData["Title"] = "Panel Principal";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="container-fluid mt-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="fw-bold">Panel de Control</h2>
+            <p class="text-muted">Resumen general de operaciones</p>
+        </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="row g-3">
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h6 class="text-uppercase text-muted mb-2">Ventas</h6>
+                    <h3 class="fw-bold text-success">Q 145,230</h3>
+                    <small>+12% respecto al mes anterior</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h6 class="text-uppercase text-muted mb-2">Clientes</h6>
+                    <h3 class="fw-bold text-primary">1,238</h3>
+                    <small>+45 nuevos esta semana</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h6 class="text-uppercase text-muted mb-2">Pedidos Pendientes</h6>
+                    <h3 class="fw-bold text-warning">42</h3>
+                    <small>En proceso de facturación</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h6 class="text-uppercase text-muted mb-2">Tickets Abiertos</h6>
+                    <h3 class="fw-bold text-danger">7</h3>
+                    <small>Atención al cliente</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gráfico y resumen -->
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white fw-semibold">Ventas Mensuales</div>
+                <div class="card-body">
+                    <canvas id="salesChart" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white fw-semibold">Últimos Movimientos</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Pedido #1045 creado</li>
+                    <li class="list-group-item">Pago recibido Q800</li>
+                    <li class="list-group-item">Nuevo cliente agregado</li>
+                    <li class="list-group-item">Inventario actualizado</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('salesChart');
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+    datasets: [{
+      label: 'Ventas (Q)',
+      data: [10000, 12000, 9000, 15000, 18000, 22000],
+      borderWidth: 2
+    }]
+  }
+});
+</script>
